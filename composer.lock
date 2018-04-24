@@ -1,0 +1,114 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d845761410eb051e9302643ed7e85dd0",
+    "packages": [
+        {
+            "name": "jeroendesloovere/wunderlist-php-api",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeroendesloovere/wunderlist-php-api.git",
+                "reference": "719876a7eb9d0ce339a4d855c17f22b33580ceb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeroendesloovere/wunderlist-php-api/zipball/719876a7eb9d0ce339a4d855c17f22b33580ceb2",
+                "reference": "719876a7eb9d0ce339a4d855c17f22b33580ceb2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JeroenDesloovere\\Wunderlist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Desloovere",
+                    "email": "info@jeroendesloovere.be",
+                    "homepage": "http://jeroendesloovere.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Wunderlist PHP class connects to Wunderlist API.",
+            "homepage": "https://github.com/jeroendesloovere/wunderlist-php-api",
+            "keywords": [
+                "Tasks",
+                "api",
+                "php",
+                "reminders",
+                "to-do",
+                "wunderlist"
+            ],
+            "time": "2014-06-10T08:20:31+00:00"
+        },
+        {
+            "name": "nepda/youtrack-client",
+            "version": "v1.7.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nepda/youtrack-client.git",
+                "reference": "02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nepda/youtrack-client/zipball/02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a",
+                "reference": "02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": ">=1",
+                "lib-curl": ">=7",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/dbunit": ">=1.2",
+                "phpunit/php-invoker": "*",
+                "phpunit/phpunit": "5.*",
+                "phpunit/phpunit-selenium": ">=1.2",
+                "phpunit/phpunit-story": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "YouTrack\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nepomuk Fraedrich",
+                    "email": "info@nepda.eu"
+                },
+                {
+                    "name": "Sergey Susikov",
+                    "email": "sergey.susikov@coldbrainweb.com"
+                }
+            ],
+            "description": "A PHP YouTrack client library",
+            "time": "2018-04-13T13:17:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

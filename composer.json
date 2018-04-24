@@ -1,0 +1,16 @@
+{
+    "name": "samih/youtrack-wunderlist-api",
+    "description": "Connects youtrack with wunderlist",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samih Soylu",
+            "email": "samih@nivano.nl"
+        }
+    ],
+    "require": {
+        "jeroendesloovere/wunderlist-php-api": "^1.0",
+        "nepda/youtrack-client": "^1.7"
+    }
+}
