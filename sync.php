@@ -58,6 +58,13 @@ foreach ($issues as $issue) {
     /*
       @todo Connect with wunderlist, and make it so initial description also ends up in wunderlist
       and also all the descriptions of comments that follow up after that.
+
+      @resources
+
+      https://github.com/nepda/youtrack-client/tree/master/examples
+
+      https://github.com/jeroendesloovere/wunderlist-php-api
+      
     */
 }
 ?>
