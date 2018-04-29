@@ -20,6 +20,7 @@ try {
 
 # Gets all issues based on filter
 $issues = $youtrack->getIssuesByFilter('#Unresolved for:me');
+
 echo '<pre>';
 
 # Loops through all issues retrieved
@@ -27,10 +28,10 @@ foreach ($issues as $issue) {
 
     $ticketPriority    = $issue->getPriority();
     $ticketIdentifier  = $issue->getId();
-    $ticketTitle       = $issue->getSummary();
+    $ticketTitle       = strip_tags($issue->getSummary());
     $ticketStatus      = str_replace(" ", "-", $issue->getState());
     $ticketCreator     = $issue->getReporterFullName();
-    $ticketDescription = str_replace("\n", PHP_EOL, $issue->getDescription());
+    $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
 
     $tasktitle         = "#" . $ticketPriority . " | " . $ticketIdentifier . " | " . $ticketTitle . " | #". $ticketStatus;
     $taskcreator       = "Created by: ". $ticketCreator . ".";
@@ -86,7 +87,6 @@ foreach ($issues as $issue) {
 
 echo '</pre>';
 
-
 function newline($increment=1) {
   $newLine = '';
   for($loop = 0; $loop <= $increment; $loop++) {
@@ -95,5 +95,5 @@ function newline($increment=1) {
   return $newLine;
 }
 
-
 ?>
+-----====-----
