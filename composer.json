@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "jeroendesloovere/wunderlist-php-api": "^1.0",
-        "nepda/youtrack-client": "^1.7"
+        "nepda/youtrack-client": "^1.7",
+        "vlucas/phpdotenv": "^2.4"
     }
 }
