@@ -41,5 +41,5 @@ $all_existing_tickets_on_wunderlist = $w->getAllExistingTaskIds($wunderlist_list
 # Syncs the array of tasks with wunderlist.
 $result = $w->syncTasks($tickets_to_be_synced, $wunderlist_list_id);
 
-# Logs the result
+# Logs the end result
 Miscellaneous::log($result, 'sync_results');
