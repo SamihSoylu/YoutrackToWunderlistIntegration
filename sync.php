@@ -18,7 +18,7 @@ require_once(dirname(__FILE__).'/init.php');
 $w = new WunderlistHandler();
 
 # Gets the list id of specific list. Used later to get list of tasks
-$wunderlist_list_id = $w->getListId('TM - Sam - Week schedule');
+$wunderlist_list_id = $w->getListId($_ENV['WL_LIST']);
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * *
 * YouTrack API & Basic Settings

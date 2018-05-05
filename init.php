@@ -13,7 +13,7 @@ $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
 # Sets the followng variables as required
-$dotenv->required(['YT_URL', 'YT_USERNAME', 'YT_PASSWORD', 'WL_CLIENT_ID', 'WL_CLIENT_SECRET', 'WL_CLIENT_ACCESSTOKEN']);
+$dotenv->required(['YT_URL', 'YT_USERNAME', 'YT_PASSWORD', 'WL_CLIENT_ID', 'WL_CLIENT_SECRET', 'WL_CLIENT_ACCESSTOKEN', 'WL_LIST']);
 
 # Load all classes
 spl_autoload_register(function ($class_name) {
