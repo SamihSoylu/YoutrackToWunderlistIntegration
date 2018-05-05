@@ -10,6 +10,10 @@ class Miscellaneous {
   */
   public static function Log($errorMessage, $filename='error') {
 
+    if(is_array($errorMessage)) {
+      $errorMessage = print_r($errorMessage, true);
+    }
+
     # Where the error will be saved
     $errorFile = 'logs/' . $filename . '.log';
 
