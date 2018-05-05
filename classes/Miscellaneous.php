@@ -10,8 +10,17 @@ class Miscellaneous {
   */
   public static function Log($errorMessage, $filename='error') {
 
+    # Makes logging compatible with arrays.
     if(is_array($errorMessage)) {
+
+      # Does not log if there is nothing to log.
+      if(sizeof($errorMessage) < 1) {
+        return;
+      }
+
+      # Turns array to string.
       $errorMessage = print_r($errorMessage, true);
+
     }
 
     # Where the error will be saved
