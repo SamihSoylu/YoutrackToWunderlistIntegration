@@ -109,11 +109,15 @@ class WunderlistHandler {
   */
   public function syncTasks($tasks, $list_id) {
 
+    $api_result = array();
+
+    $counter = 0;
     foreach($tasks AS $task) {
-      $api_result = $this->_connection->createTask([
+      $api_result[$counter] = $this->_connection->createTask([
           'list_id' => $list_id,
           'title'   => $task
       ]);
+      $counter++;
     }
 
     return $api_result;
