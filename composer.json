@@ -11,6 +11,7 @@
     ],
     "require": {
         "nepda/youtrack-client": "^1.7",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "johnrivs/wunderlist": "^0.13.2"
     }
 }

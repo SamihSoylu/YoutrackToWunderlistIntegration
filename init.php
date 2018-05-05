@@ -13,4 +13,9 @@ $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
 # Sets the followng variables as required
-$dotenv->required(['YT_URL', 'YT_USERNAME', 'YT_PASSWORD']);
+$dotenv->required(['YT_URL', 'YT_USERNAME', 'YT_PASSWORD', 'WL_CLIENT_ID', 'WL_CLIENT_SECRET', 'WL_CLIENT_ACCESSTOKEN']);
+
+# Load all classes
+spl_autoload_register(function ($class_name) {
+  require_once(dirname(__FILE__).'/classes/'. $class_name .'.php');
+});

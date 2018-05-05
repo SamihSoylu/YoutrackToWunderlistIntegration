@@ -1,0 +1,7 @@
+RedirectMatch 403 ^/.git/?$
+RedirectMatch 403 ^/vendor/?$
+RedirectMatch 403 ^/.env?$
+RedirectMatch 403 ^/.gitignore?$
+RedirectMatch 403 ^/composer.json?$
+RedirectMatch 403 ^/composer.lock?$
+RedirectMatch 403 ^/init.php?$

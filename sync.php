@@ -1,99 +1,45 @@
 <?php
 
+/*
+  Sources:
+    - https://github.com/nepda/youtrack-client/tree/master/examples
+    - https://github.com/johnRivs/wunderlist
+    - https://github.com/vlucas/phpdotenv
+*/
+
 # Loads all settings and dependencies
 require_once(dirname(__FILE__).'/init.php');
 
-# Creates connection to youtrack
-try {
-  $youtrack = new YouTrack\Connection(
-      $_ENV['YT_URL'],
-      $_ENV['YT_USERNAME'],
-      $_ENV['YT_PASSWORD']
-  );
-} catch (\YouTrack\IncorrectLoginException $e) {
-  echo 'Incorrect username or password. Error details: '. $e; // @todo implement logging
-  exit();
-} catch (Exception $e) {
-  echo 'Internal error, likely the given YouTrack URL is incorrect. Error details: '. $e;
-  exit();
-}
+/* * * * * * * * * * * * * * * * * * * * * * * * * *
+* Wunderlist API & Basic Settings
+* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-# Gets all issues based on filter
-$issues = $youtrack->getIssuesByFilter('#Unresolved for:me');
+# Instantiates the handler class
+$w = new WunderlistHandler();
 
-echo '<pre>';
+# Gets the list id of specific list. Used later to get list of tasks
+$wunderlist_list_id = $w->getListId('TM - Sam - Week schedule');
 
-# Loops through all issues retrieved
-foreach ($issues as $issue) {
+/* * * * * * * * * * * * * * * * * * * * * * * * * *
+* YouTrack API & Basic Settings
+* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    $ticketPriority    = $issue->getPriority();
-    $ticketIdentifier  = $issue->getId();
-    $ticketTitle       = strip_tags($issue->getSummary());
-    $ticketStatus      = str_replace(" ", "-", $issue->getState());
-    $ticketCreator     = $issue->getReporterFullName();
-    $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
+# Instantiates the handler class
+$yt = new YoutrackHandler();
 
-    $tasktitle         = "#" . $ticketPriority . " | " . $ticketIdentifier . " | " . $ticketTitle . " | #". $ticketStatus;
-    $taskcreator       = "Created by: ". $ticketCreator . ".";
-    $taskdescription   = "Task description: ". newline() . $ticketDescription;
+/* * * * * * * * * * * * * * * * * * * * * * * * * *
+* Processing tickets to Wunderlist
+* * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    # PRESENTATION ON TO THE SCREEN
-    echo $tasktitle . newline() . $taskcreator . newline() . $taskdescription . newline(4);
+# Gets all existing tickets on wunderlist; Returns an array of ticket ids (BE-109, KHS-1, LEYLINES-75, etc..)
+$all_existing_tickets_on_wunderlist = $w->getAllExistingTaskIds($wunderlist_list_id);
 
-    /*
-    [attributes:protected] => Array
-            (
-                [id] => LEYLINES-122
-                [entityId] => 82-2735
-                [projectShortName] => LEYLINES
-                [numberInProject] => 122
-                [summary] => OHHG - Direct Debit (automatische incasso) isn't working as expected
-                [description] => Direct Debit (automatische incasso) isn't working as expected. Please test it and fix it.
-                [created] => 1523006524987
-                [updated] => 1524236351619
-                [updaterName] => Samih
-                [updaterFullName] => Samih Soylu
-                [reporterName] => roland
-                [reporterFullName] => Roland Haselager
-                [commentsCount] => 11
-                [votes] => 0
-                [Priority] => Normal
-                [Type] => Bug
-                [State] => Waiting
-                [Assignee] => Samih
-                [Estimation] => 150
-                [Spent time] => 118
-                [%Done] => 0%
-            )
+# An array of strings which are un-synced tickets.
+#$tickets_to_be_synced = $yt->getAllUnSyncedTickets($all_existing_tickets_on_wunderlist);
+#$tickets_to_be_synced = array('Test task');
 
-    */
-    /*
-      @todo Connect with wunderlist, and make it so initial description also ends up in wunderlist
-      and also all the descriptions of comments that follow up after that.
+# Syncs the array of tasks with wunderlist.
+$result = $w->syncTasks($tickets_to_be_synced, $wunderlist_list_id);
 
-      Check what are the effects of youtrack being down? Change the url to something else to see.
-      Maybe copy the try catch from the git repo.
-
-      @resources
-
-      https://github.com/nepda/youtrack-client/tree/master/examples
-
-      https://github.com/jeroendesloovere/wunderlist-php-api
-
-      https://github.com/vlucas/phpdotenv
-
-    */
-}
-
-echo '</pre>';
-
-function newline($increment=1) {
-  $newLine = '';
-  for($loop = 0; $loop <= $increment; $loop++) {
-    $newLine .= PHP_EOL;
-  }
-  return $newLine;
-}
-
-?>
------====-----
+# Logs the result
+Miscellaneous::log($result, 'sync_results');
