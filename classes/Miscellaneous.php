@@ -10,6 +10,8 @@ class Miscellaneous {
   */
   public static function Log($errorMessage, $filename='error') {
 
+    # @todo: to further improve this function, implement a base path.
+
     # Makes logging compatible with arrays.
     if(is_array($errorMessage)) {
 
