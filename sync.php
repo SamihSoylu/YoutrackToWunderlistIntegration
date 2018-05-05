@@ -35,8 +35,7 @@ $yt = new YoutrackHandler();
 $all_existing_tickets_on_wunderlist = $w->getAllExistingTaskIds($wunderlist_list_id);
 
 # An array of strings which are un-synced tickets.
-#$tickets_to_be_synced = $yt->getAllUnSyncedTickets($all_existing_tickets_on_wunderlist);
-#$tickets_to_be_synced = array('Test task');
+$tickets_to_be_synced = $yt->getAllUnSyncedTickets($all_existing_tickets_on_wunderlist);
 
 # Syncs the array of tasks with wunderlist.
 $result = $w->syncTasks($tickets_to_be_synced, $wunderlist_list_id);
