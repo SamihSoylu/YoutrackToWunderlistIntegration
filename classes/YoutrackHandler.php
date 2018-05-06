@@ -56,10 +56,10 @@ class YoutrackHandler {
 
         $ticketCreator     = $issue->getReporterFullName();
         $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
-        $taskcreator       = "Created by: ". $ticketCreator . ".";
-        $taskdescription   = "Task description: ". PHP_EOL . $ticketDescription;
+        $taskCreator       = "Created by: ". PHP_EOL . $ticketCreator . "." . PHP_EOL;
+        $taskDescription   = "Task description: ". PHP_EOL . $ticketDescription;
 
-        $comment = $taskcreator . PHP_EOL . $taskdescription;
+        $comment = $taskCreator . PHP_EOL . $taskDescription;
 
         # Do not process already existing tickets on wunderlist
         if(in_array($ticketIdentifier, $ticket_ids_on_wunderlist))
