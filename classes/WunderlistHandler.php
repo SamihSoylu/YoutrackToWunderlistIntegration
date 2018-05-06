@@ -115,8 +115,16 @@ class WunderlistHandler {
     foreach($tasks AS $task) {
       $api_result[$counter] = $this->_connection->createTask([
           'list_id' => $list_id,
-          'title'   => $task
+          'title'   => $task['taskTitle']
       ]);
+
+      if(isset($api_result[$counter]['id'])) {
+        $this->_connection->createComment([
+            'task_id' => $api_result[$counter]['id'],
+            'text'    => $task['taskComment']
+        ]);
+      }
+
       $counter++;
     }
 

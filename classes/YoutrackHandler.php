@@ -54,17 +54,22 @@ class YoutrackHandler {
         # Ticket details as one string
         $tasktitle         = "#" . $ticketPriority . " | " . $ticketIdentifier . " | " . $ticketTitle . " | #". $ticketStatus;
 
-        // $ticketCreator     = $issue->getReporterFullName();
-        // $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
-        // $taskcreator       = "Created by: ". $ticketCreator . ".";
-        // $taskdescription   = "Task description: ". newline() . $ticketDescription;
+        $ticketCreator     = $issue->getReporterFullName();
+        $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
+        $taskcreator       = "Created by: ". $ticketCreator . ".";
+        $taskdescription   = "Task description: ". PHP_EOL . $ticketDescription;
+
+        $comment = $taskcreator . PHP_EOL . $taskdescription;
 
         # Do not process already existing tickets on wunderlist
         if(in_array($ticketIdentifier, $ticket_ids_on_wunderlist))
           continue;
 
         # Adds ticket to variable
-        $unsynced_tickets_from_youtrack[$counter] = $tasktitle;
+        $unsynced_tickets_from_youtrack[$counter] = array(
+          'taskTitle'   => $tasktitle,
+          'taskComment' => $comment
+        );
         $counter++;
 
     } // end of foreach
