@@ -2,7 +2,7 @@
 class YoutrackHandler {
 
   # @object connection to Youtrack API
-  private $_connection;
+  protected $_connection;
 
   public function __construct() {
 
@@ -57,9 +57,10 @@ class YoutrackHandler {
         $ticketCreator     = $issue->getReporterFullName();
         $ticketDescription = strip_tags(str_replace("\n", PHP_EOL, $issue->getDescription()));
         $taskCreator       = "Created by: ". PHP_EOL . $ticketCreator . "." . PHP_EOL;
-        $taskDescription   = "Task description: ". PHP_EOL . $ticketDescription;
+        $taskDescription   = "Task description: ". PHP_EOL . $ticketDescription . PHP_EOL;
+        $youTrackTicketURL = $_ENV['YT_URL'] . 'issue/' . $ticketIdentifier;
 
-        $comment = $taskCreator . PHP_EOL . $taskDescription;
+        $comment = $taskCreator . PHP_EOL . $taskDescription . PHP_EOL . $youTrackTicketURL;
 
         # Do not process already existing tickets on wunderlist
         if(in_array($ticketIdentifier, $ticket_ids_on_wunderlist))

@@ -5,7 +5,7 @@ use JohnRivs\Wunderlist\Wunderlist;
 class WunderlistHandler {
 
   # @object API connection to wunderlist
-  private $_connection;
+  protected $_connection;
 
   public function __construct() {
       $this->_connection = new Wunderlist(
