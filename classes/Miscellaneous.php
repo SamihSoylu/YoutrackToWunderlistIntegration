@@ -26,7 +26,7 @@ class Miscellaneous {
     }
 
     # Where the error will be saved
-    $errorFile = 'logs/' . $filename . '.log';
+    $errorFile = dirname(__FILE__).'/../logs/' . $filename . '.log';
 
     # Before the error message, date is displayed
     $date_of_error = "[".date('d M Y H:i:s')."] :: ";
