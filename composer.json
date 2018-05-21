@@ -1,6 +1,6 @@
 {
-    "name": "samih/youtrack-wunderlist-api",
-    "description": "Connects youtrack with wunderlist",
+    "name": "samih/youtrack-to-wunderlist-integration",
+    "description": "Syncs all open tickets on Youtrack assigned to you, on to Wunderlist.",
     "type": "project",
     "license": "MIT",
     "authors": [

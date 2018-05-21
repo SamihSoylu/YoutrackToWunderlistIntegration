@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "535f7bec3574af1f27990996256a2551",
+    "content-hash": "a54159b225ce7518c7fe010d6f429a78",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -233,16 +233,16 @@
         },
         {
             "name": "nepda/youtrack-client",
-            "version": "v1.7.8",
+            "version": "v1.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nepda/youtrack-client.git",
-                "reference": "02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a"
+                "reference": "c832d6201aebe7001322428e04d89534ba31b325"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nepda/youtrack-client/zipball/02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a",
-                "reference": "02a95e6c499c89406ce0794fa2cc8bf6b2b83c9a",
+                "url": "https://api.github.com/repos/nepda/youtrack-client/zipball/c832d6201aebe7001322428e04d89534ba31b325",
+                "reference": "c832d6201aebe7001322428e04d89534ba31b325",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 }
             ],
             "description": "A PHP YouTrack client library",
-            "time": "2018-04-13T13:17:55+00:00"
+            "time": "2018-05-14T09:20:43+00:00"
         },
         {
             "name": "psr/http-message",
