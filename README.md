@@ -5,7 +5,7 @@ Syncs all open tickets on Youtrack assigned to you, on to Wunderlist.
 
 To clone the repostiory, on the commandline
 ```
-git clone git@github.com:SamihSoylu/YoutrackToWunderlistIntegration.git .
+git clone https://github.com/SamihSoylu/YoutrackToWunderlistIntegration.git .
 ```
 Then install all dependencies with composer
 ```
